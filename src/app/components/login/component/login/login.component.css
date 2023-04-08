@@ -1,0 +1,51 @@
+
+.ancho{
+
+  width: 600px;
+  
+}
+.card-class{
+  background-color: white;
+  padding: 50px;
+}
+.color-boton{
+  background-color: #f6b130;
+  font-weight: bold;
+  border: none;
+}
+.titulo{
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+}
+label{
+  color: rgb(216, 114, 18);
+  font-weight: 300;
+}
+a{
+  text-decoration: none;
+  font-weight: bolder;
+
+}
+.texto-footer>h1{
+  color:#f6b130;
+  font-size: 17px;
+  
+}
+h1{color: #f6b130;}
+.texto-footer{
+  display: flex;
+  width: 500px;
+  height: 30px;
+}
+.cuenta-text{
+  color: white;
+  font-size: 15px;
+}
+.registrarse-text{
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 5px;
+  color: rgb(247, 162, 14);
+}

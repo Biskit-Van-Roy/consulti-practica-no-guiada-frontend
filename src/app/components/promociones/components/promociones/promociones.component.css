@@ -1,0 +1,100 @@
+.ancho{
+    position: absolute;
+    width: 50px;
+  }
+  .card-class{
+    background-color: white;
+  
+    padding: 10px;
+  }
+  
+  
+  .contenedor-planes>h1{
+    font-size: 15px;
+    color: rgb(216, 114, 18);
+    font-weight: 500;
+  }
+  a{
+    text-decoration: none;
+  }
+  .contenedor-total{
+    width: 100%;
+    padding: 50px;
+   
+  
+  }
+  .columna{
+    padding: 10px 20px 20px 50px;
+  }
+  .texto-footer{
+    display: flex;
+    width: 500px;
+    height: 30px;
+  }
+  
+  .link{
+    
+    margin-left: 10px;
+  }
+  .link>h1{
+    font-weight: bold;
+  }
+  .header{
+    color: rgb(216, 114, 18);
+  
+    font-size: 40px;
+    font-weight:bold;
+  }
+  .edad{
+    width: 200px;
+  }
+  label{
+    font-weight: 500;
+    color:rgb(216, 114, 18);
+    font-size: 20px;
+  }
+  .radio{
+    height: 17px;
+    width: 17px;
+  }
+  .titulo2{
+    color: rgb(216, 114, 18);
+    font-weight: bold;
+    font-size: 30px;
+  }
+  .texto-footer>h1{
+    color:rgb(216, 114, 18);
+    font-size: 25px;
+    
+  }
+  .texto-iniciar{
+    color: rgb(216, 114, 18);
+    font-size: 25px;
+  }
+  .color-boton{
+    background-color: #f2860a;
+    border: none;
+    width: 200px;
+    font-weight: bold;
+  }
+  .columna2{
+    padding: 80px 20px 50px 50px;
+  }
+  .checkbox{
+    width: 20px;
+    height: 20px;
+  
+  }
+  .logo{
+    margin-left: 10px;
+  }
+  .logo{
+    margin-left: 10px;
+  }
+  .titulo{
+    color:rgb(216, 114, 18);
+  }
+  .boton{
+    background-color: rgb(216, 114, 18);
+    border: none;
+  }

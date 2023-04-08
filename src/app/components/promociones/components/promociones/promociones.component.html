@@ -1,0 +1,144 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand logo" href="#">Consulti</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link"[routerLink]="['/user']">Eventos Registrados</a>
+        <a class="nav-item nav-link"[routerLink]="['/promociones']">Promociones </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="contenedor-total">
+    
+    <div class="container mt-4 ancho">
+  
+    </div>
+    
+  <div class="card card-class">
+    
+    <form>
+      <div class="row">
+        <div class="col columna">
+          <h1 class="header">Crear una nueva promocion</h1>
+          <br>
+       
+          <div class="form-group">
+            <label for="nombres">Nombre</label>
+            <br>
+            <input type="text"  [(ngModel)]="nombre" [ngModelOptions]="{standalone:true}"    class="form-control" id="nombres" placeholder="Nombre">
+          </div>
+          <div class="form-group">
+            <label for="nombres">Fecha de inicio</label>
+            <br>
+            
+            <input type="date"  [(ngModel)]="fecha_inicio" [ngModelOptions]="{standalone:true}"    class="form-control" id="apellidos" placeholder="Apellidos">
+          </div>
+          <div class="form-group">
+            <label for="nombres">Fecha de fin</label>
+            <br>
+            <input type="date"  [(ngModel)]="fecha_fin" [ngModelOptions]="{standalone:true}"    class="form-control" id="email" placeholder="Email">
+          </div>
+       
+          <div class="form-group edad">
+            <label for="edad">Descuento</label>
+            <br>
+            <input type="number"  [(ngModel)]="descuento" [ngModelOptions]="{standalone:true}"  class="form-control" id="edad" placeholder="Edad">
+          </div>
+          <br>
+          <br>
+          <button type="submit" class="btn btn-primary color-boton" (click)="save()">Crear</button>
+     
+
+        </div>
+       
+        <div class="col columna2">
+            <h1 style="padding: 30px;" class="titulo">Lista de promociones</h1>
+            <div style="padding: 50px;">
+              <table class="table table'bordered">
+                <thead class="thead">
+                  <tr>
+                    
+                    <th>Nombre</th>
+                    <th>Inicio</th>
+                    <th>Fin</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                  </tr>
+                </thead>
+                <tbody class="tbody"> 
+                  <tr *ngFor="let promocion of promocionesDetails">
+                    <td>
+                      {{promocion.nombre}}
+                    </td>
+                    <td>
+                      {{promocion.fecha_inicio}}
+                    </td>
+                    <td>
+                      {{promocion.fecha_final}}
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-primary boton"data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="updatePromociones(promocion,promocion.id)">Editar</button>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-danger" (click)="deletePromociones(promocion.id)">Eliminar</button>
+                    
+                    </td>
+                  </tr>
+                </tbody>
+            
+              </table>
+            </div>
+      <br>
+      <br>
+     
+      <br>
+      <br>
+    
+      <div class="texto-footer">
+    <!--     <h1>Si ya tienes una cuenta </h1> -->
+        
+      </div>
+        </div>
+      </div>
+     
+    </form>
+    </div>
+  </div>
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar promocion</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="nombres">Nombre:</label>
+              <input type="text" #name  name="nombres" class="form-control" placeholder="Nombres"a [(ngModel)]="promocionesToUpdate.nombre"/>
+              </div>
+            <div class="form-group">
+              <label for="apellidos">Fecha de inicio:</label>
+              <input type="date" #name  name="apellidos" class="form-control" placeholder="Apellidos" [(ngModel)]="promocionesToUpdate.fecha_inicio"/>
+            </div>
+            <div class="form-group">
+              <label for="apellidos">Fecha de final:</label>
+              <input type="date" #name  name="apellidos" class="form-control" placeholder="Apeliidos" [(ngModel)]="promocionesToUpdate.fecha_final"/>
+            </div>
+          
+            
+          </form>
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="edit(promocionesToUpdate, promocionesToUpdate.id)">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
