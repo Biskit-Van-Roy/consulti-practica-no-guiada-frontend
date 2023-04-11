@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     } else if (resultData.message == "Login correcto admin"){
       this.router.navigateByUrl('/eventos');
     } else if(resultData.message == "Login correcto user"){
-      this.router.navigateByUrl('/productos');
+      this.router.navigateByUrl('/eventos-user');
     }
     else{
       alert("Email o contraseña incorrectos");
