@@ -7,10 +7,12 @@ import { HomeComponent } from './components/home/component/home/home.component';
 import { UserComponent } from './components/users/component/user/user.component';
 import { PromocionesComponent } from './components/promociones/components/promociones/promociones.component';
 import { ProductosComponent } from './components/productos/components/productos/productos.component';
+import { RegistroComponent } from './components/registro/components/registro/registro.component';
 
 const routes: Routes = [
   { path: '', component:LoginComponent},
-  { path: 'sign-in', component:SigninComponent },
+  { path: 'eventos', component:SigninComponent },
+  { path: 'sign-in', component:RegistroComponent },
   { path: 'home', component:HomeComponent },
   { path: 'admin', component:AdminComponent },
   { path: 'user', component:UserComponent },

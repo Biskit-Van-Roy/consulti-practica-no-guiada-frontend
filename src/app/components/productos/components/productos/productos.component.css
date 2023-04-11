@@ -1,0 +1,17 @@
+.navbarderecha{
+    padding-right: 20px;
+    
+    justify-content: end; 
+}
+.logo{
+    padding-left: 20px;
+}
+.titulo{
+    color: rgb(231, 144, 29);
+    font-weight: bold;
+}
+th{
+    color: rgb(231, 144, 29);
+    font-weight: bold;
+    font-size: 20px;
+}

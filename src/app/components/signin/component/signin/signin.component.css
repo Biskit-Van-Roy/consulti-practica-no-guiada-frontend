@@ -7,8 +7,13 @@
 
   padding: 10px;
 }
-
-
+td{
+  width: 70%;
+  border: none;
+}
+.titulo-fechas{
+  color: rgb(216, 114, 18);
+}
 .contenedor-planes>h1{
   font-size: 15px;
   color: rgb(216, 114, 18);

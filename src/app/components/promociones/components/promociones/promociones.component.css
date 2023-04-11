@@ -98,3 +98,11 @@
     background-color: rgb(216, 114, 18);
     border: none;
   }
+  .tabla-eventos{
+    
+    height: 200px;
+    border: rgb(216, 114, 18) solid 2px;
+    border-radius: 0px;
+
+    overflow-y: scroll;
+  }

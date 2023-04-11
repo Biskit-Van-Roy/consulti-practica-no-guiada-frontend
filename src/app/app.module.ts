@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/component/home/home.component';
 import { UserComponent } from './components/users/component/user/user.component';
 import { PromocionesComponent } from './components/promociones/components/promociones/promociones.component';
 import { ProductosComponent } from './components/productos/components/productos/productos.component';
+import { RegistroComponent } from './components/registro/components/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductosComponent } from './components/productos/components/productos/
     HomeComponent,
     UserComponent,
     PromocionesComponent,
-    ProductosComponent
+    ProductosComponent,
+    RegistroComponent
   ],
   bootstrap: [AppComponent],
   imports: [

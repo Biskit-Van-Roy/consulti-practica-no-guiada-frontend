@@ -25,13 +25,19 @@ export class LoginComponent implements OnInit {
       user:this.user,
       password:this.password
   };
-  if(this.user === "admin"&& this.password==="admin"){
-    this.router.navigateByUrl('/sign-in');
-  }
-  else{
-        alert("Email o contraseña incorrectos");
-
-  }
+  this.http.post(`${base_url}/user/login`,bodyData).subscribe((resultData:any)=>{
+    console.log(resultData);
+    if(resultData.message == "El correo no existe"){
+      alert("Email no existe");
+    } else if (resultData.message == "Login correcto admin"){
+      this.router.navigateByUrl('/eventos');
+    } else if(resultData.message == "Login correcto user"){
+      this.router.navigateByUrl('/productos');
+    }
+    else{
+      alert("Email o contraseña incorrectos");
+    }
+  })
 
   }
 }

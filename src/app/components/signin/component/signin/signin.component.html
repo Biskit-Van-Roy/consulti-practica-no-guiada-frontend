@@ -5,7 +5,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" [routerLink]="['/sign-in']">Registrar evento</a>
+      <a class="nav-item nav-link active" [routerLink]="['/eventos']">Registrar evento</a>
       <a class="nav-item nav-link"[routerLink]="['/user']">Eventos Registrados</a>
       <a class="nav-item nav-link"[routerLink]="['/promociones']">Promociones</a>
     </div>
@@ -42,7 +42,7 @@
           
           <input type="number"  [(ngModel)]="entradas" [ngModelOptions]="{standalone:true}"    class="form-control" id="email" placeholder="Email">
         </div>
-     
+        
         <div class="form-group edad">
           <label for="edad">Fecha</label>
           <br>
@@ -55,7 +55,34 @@
      
       <div class="col columna2">
     
-   
+        <div class="form-group edad">
+          <label for="edad">Agregar fechas de compra</label>
+          <br>
+          <input type="date"  [(ngModel)]="fecha_compra" [ngModelOptions]="{standalone:true}"  class="form-control" id="edad" placeholder="Edad">
+        </div>
+        <br>
+      
+        <button type="submit" class="btn btn-primary color-boton" (click)="addDate()">Agregar fecha</button>    
+        
+        
+        <br>
+        <br>
+        <table class="table table-bordered">
+          <thead class="thead">
+            <tr>
+              <th class="titulo-fechas">Fechas de compra</th>
+              
+            </tr>
+          </thead>
+          <tbody class="tbody"> 
+            <tr *ngFor="let fecha of fechas">
+              <td>
+                {{fecha}}
+              </td>
+            </tr>
+          </tbody>
+      
+        </table>
 
     <br>
     <br>

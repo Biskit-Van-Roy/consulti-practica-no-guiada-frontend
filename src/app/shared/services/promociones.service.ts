@@ -18,5 +18,14 @@ export class PromocionesService{
         return this.http.delete(endpoint);
         
     }
+    getEventos(){
+        const endpoint = "http://localhost:8080/api/v1/evento/all";
+        return this.http.get(endpoint);
+    }
+    addEvent(body:any,id:number){
+        console.log(body)
+        const endpoint = `http://localhost:8080/api/v1/evento/${id}`;
+        return this.http.put(endpoint,body);
+    }
     
 }

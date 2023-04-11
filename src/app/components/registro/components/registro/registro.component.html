@@ -1,0 +1,75 @@
+<div class="contenedor-total">
+    <div class="container mt-4 ancho">
+  
+    </div>
+    
+  <div class="card card-class">
+    
+    <form>
+      <div class="row">
+        <div class="col columna">
+          <h1 class="header">Crear una nueva cuenta</h1>
+          <br>
+          <div class="form-group">
+            <label for="nombre">Nombre de usuario</label>
+            <br>
+            
+            <input type="text"  [(ngModel)]="user" [ngModelOptions]="{standalone:true}"    class="form-control" id="user" placeholder="Nombre">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="email">Nombres</label>
+            <br>
+            <input type="text"  [(ngModel)]="nombres" [ngModelOptions]="{standalone:true}"  class="form-control" id="nombres" placeholder="Email">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="email">Apellidos</label>
+            <br>
+            <input type="text"  [(ngModel)]="apellidos" [ngModelOptions]="{standalone:true}"  class="form-control" id="apellidos" placeholder="Apellidos">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="edad">Email</label>
+            <br>
+            <input type="email"  [(ngModel)]="email" [ngModelOptions]="{standalone:true}"  class="form-control" id="email" placeholder="Email">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="edad">Password</label>
+            <br>
+            <input type="password"  [(ngModel)]="password" [ngModelOptions]="{standalone:true}"  class="form-control" id="password" placeholder="Password">
+          </div>
+        </div>
+       
+        <div class="col columna">
+          <h1 class="titulo2">Escoja el tipo de usuario</h1>
+          <div  *ngFor="let checkboxU of checkboxesUser">
+            <label>
+              <input type="checkbox" [id]="checkboxU.id" [disabled]="checkboxU.disabled" (change)="onChangeU($event)"  >
+              {{checkboxU.value}}
+            </label>
+          </div>
+     
+  <br>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-warning color-boton" (click)="save()">Registrar</button>
+      <br>
+      <br>
+      <div class="texto-footer">
+        <h1>Si ya tienes una cuenta </h1>
+        <a mat-list-item class="link"  [routerLink]="['/']" routerLinkActive="router-link-active" >
+          <h1 class="texto-iniciar">Inicia sesión</h1>
+        </a>
+      </div>
+        </div>
+      </div>
+  
+ 
+      <br>
+      <br>
+     
+    </form>
+    </div>
+  </div>

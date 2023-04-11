@@ -1,15 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand logo" href="#">Consulti</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link"[routerLink]="['/user']">Eventos Registrados</a>
-        <a class="nav-item nav-link"[routerLink]="['/promociones']">Promociones </a>
-      </div>
+  <a class="navbar-brand logo" href="#">Consulti</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" [routerLink]="['/eventos']">Registrar evento</a>
+      <a class="nav-item nav-link"[routerLink]="['/user']">Eventos Registrados</a>
+      <a class="nav-item nav-link"[routerLink]="['/promociones']">Promociones</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <div class="contenedor-total">
     
@@ -46,6 +47,36 @@
             <label for="edad">Descuento</label>
             <br>
             <input type="number"  [(ngModel)]="descuento" [ngModelOptions]="{standalone:true}"  class="form-control" id="edad" placeholder="Edad">
+          </div>
+          <br>
+          <h1 style="padding: 30px;" class="titulo">Lista de eventos</h1>
+          <div style="padding: 50px;" class="tabla-eventos">
+            <table class="table table'bordered">
+              <thead class="thead">
+                <tr>
+                  
+                  <th>Nombre</th>
+                  <th>Fecha</th>
+                  <th>Agregar</th>
+                </tr>
+              </thead>
+              <tbody class="tbody"> 
+                <tr *ngFor="let evento of eventos">
+                  <td>
+                    {{evento.nombre}}
+                  </td>
+                  <td>
+                    {{evento.fecha}}
+                  </td>
+                
+                  <td>
+                    <button type="button" class="btn btn-primary boton" (click)="addEvento(evento,evento.id)">Agregar</button>
+                  </td>
+               
+                </tr>
+              </tbody>
+          
+            </table>
           </div>
           <br>
           <br>
