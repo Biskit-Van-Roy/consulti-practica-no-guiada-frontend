@@ -19,7 +19,7 @@
   
 <div class="card card-class">
   
-  <form>
+  <form [formGroup]="eventoForm" >
     <div class="row">
       <div class="col columna">
         <h1 class="header">Crear un nuevo evento</h1>
@@ -28,25 +28,25 @@
         <div class="form-group">
           <label for="nombres">Nombre del evento</label>
           <br>
-          <input type="text"  [(ngModel)]="nombre" [ngModelOptions]="{standalone:true}"    class="form-control" id="nombres" placeholder="Nombre">
+          <input type="text"   [(ngModel)]="nombre" [ngModelOptions]="{standalone:true}"     class="form-control" id="nombres" placeholder="Nombre"required>
         </div>
         <div class="form-group">
           <label for="nombres">Precio</label>
           <br>
           
-          <input type="number"  [(ngModel)]="precio" [ngModelOptions]="{standalone:true}"    class="form-control" id="apellidos" placeholder="Apellidos">
+          <input type="number"  f [(ngModel)]="precio" [ngModelOptions]="{standalone:true}"      class="form-control" id="apellidos" placeholder="precio" required="">
         </div>
         <div class="form-group">
           <label for="nombres">Entradas</label>
           <br>
           
-          <input type="number"  [(ngModel)]="entradas" [ngModelOptions]="{standalone:true}"    class="form-control" id="email" placeholder="Email">
+          <input type="number"   [(ngModel)]="entradas" [ngModelOptions]="{standalone:true}"      class="form-control" id="email" placeholder="entradas" required>
         </div>
         
         <div class="form-group edad">
           <label for="edad">Fecha</label>
           <br>
-          <input type="date"  [(ngModel)]="fecha" [ngModelOptions]="{standalone:true}"  class="form-control" id="edad" placeholder="Edad">
+          <input type="date"  [(ngModel)]="fecha" [ngModelOptions]="{standalone:true}"   class="form-control" id="edad" placeholder="fecha">
         </div>
         <br>
         <br>
@@ -54,11 +54,22 @@
       </div>
      
       <div class="col columna2">
+       <!--  <div class="form-group">
+          <label for="file-upload">Agregar imagen del evento</label>
+          <br>
+          <input id="file-upload"
+          accept="image/png, image/jpeg"
+          (change)="onFileChanged($event)"
+          type="file"
+    
+          class="input-file"/>
+        </div> -->
+        <br>
     
         <div class="form-group edad">
           <label for="edad">Agregar fechas de compra</label>
           <br>
-          <input type="date"  [(ngModel)]="fecha_compra" [ngModelOptions]="{standalone:true}"  class="form-control" id="edad" placeholder="Edad">
+          <input type="date"   [(ngModel)]="fecha_compra" [ngModelOptions]="{standalone:true}"   class="form-control" id="edad" placeholder="Edad">
         </div>
         <br>
       

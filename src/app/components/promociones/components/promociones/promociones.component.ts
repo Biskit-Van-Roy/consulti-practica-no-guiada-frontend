@@ -4,6 +4,12 @@ import { Router } from '@angular/router';
 import { PromocionesService } from 'src/app/shared/services/promociones.service';
 import { environment } from 'src/environments/environment';
 const base_url = environment.base_url;
+export interface Evento{
+  
+  id: number;
+  nombre: string;
+  fecha:string
+}
 @Component({
   selector: 'app-promociones',
   templateUrl: './promociones.component.html',
@@ -19,7 +25,7 @@ export class PromocionesComponent implements OnInit {
   vip:number=1;
   promocionesDetails=null;
   eventos=null;
-  evento_seleccionado: number[]=[];  
+  evento_seleccionado: Evento[]=[];  
   promocionesToUpdate = {
     id:0,
     nombre:"",
@@ -104,8 +110,15 @@ export class PromocionesComponent implements OnInit {
     console.log(this.promocionesToUpdate);
   }
   addEvento(evento:any,id:number){
-   this.evento_seleccionado.push(id);
+    console.log(evento);
+
+   this.evento_seleccionado.push(evento);
    alert("Se agrego el evento correctamente")
+   console.log(this.evento_seleccionado)
+   
+/* 
+   const endpoint  = `${base_url}/evento/${id}`;
+   return this.http.post(endpoint,evento,{responseType:'text'}); */
   }
   edit(promociones:any, id:number){
     this.promocionesService.updatePromociones(this.promocionesToUpdate,id).subscribe((resp)=>{
@@ -125,23 +138,35 @@ export class PromocionesComponent implements OnInit {
     const dateTime = currentDate.getDate();
     
    let bodyData = {
-     "nombre":this.nombre,
-     "fecha_inicio":this.fecha_inicio,
-     "fecha_final":this.fecha_fin,
-     "descuento":this.descuento,
-     "vip":this.vip,
-     "tipo":this.tipo,
-     "usuario_creador":"admin",
-     "fecha_creacion":dateTime,
-     "eventos":this.evento_seleccionado
+     nombre:this.nombre,
+     fecha_inicio:this.fecha_inicio,
+     fecha_final:this.fecha_fin,
+     descuento:this.descuento,
+     vip:this.vip,
+     tipo:this.tipo,
+     usuario_creador:"admin",
+     fecha_creacion:dateTime,
+     eventoId:3,
+     fecha_modificacion:dateTime
    };
+   const uploadPromocion = new FormData();
+   uploadPromocion.append('nombre',bodyData.nombre)
+   uploadPromocion.append('fecha_inicio',bodyData.fecha_inicio)
+   uploadPromocion.append('fecha_final',bodyData.fecha_final)
+   uploadPromocion.append('descuento',bodyData.descuento.toString())
+   uploadPromocion.append('vip',bodyData.vip.toString())
+   uploadPromocion.append('tipo',bodyData.tipo.toString())
+   uploadPromocion.append('eventoId',bodyData.eventoId.toString())
+   uploadPromocion.append('usuario_creador',"admin")
+   uploadPromocion.append('fecha_creacion',bodyData.fecha_creacion)
+   uploadPromocion.append('fecha_modificacion',bodyData.fecha_modificacion)
    console.log(bodyData);
-   this.http.post(`${base_url}/promociones/save`,bodyData,{responseType:'text'}).subscribe((resultData:any)=>{
-     console.log(resultData.id);
-     alert("Promocion registrada exitosamente");
-     this.router.navigateByUrl('/promociones');
+   this.promocionesService.save(uploadPromocion).subscribe((resp)=>{
+    console.log(resp);
+    alert("Se guardo correctamente");
    });
 
- }
+   
 
+ }
 }

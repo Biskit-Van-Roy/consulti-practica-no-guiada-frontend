@@ -27,26 +27,34 @@
           <br>
        
           <div class="form-group">
-            <label for="nombres">Nombre</label>
+            <label for="nombre">Nombre</label>
             <br>
-            <input type="text"  [(ngModel)]="nombre" [ngModelOptions]="{standalone:true}"    class="form-control" id="nombres" placeholder="Nombre">
+            <input type="text" #name  [(ngModel)]="nombre" [ngModelOptions]="{standalone:true}"  name="nombre"  class="form-control" id="nombre" placeholder="Nombre">
           </div>
           <div class="form-group">
-            <label for="nombres">Fecha de inicio</label>
+            <label for="fecha_inicio">Fecha de inicio</label>
             <br>
             
-            <input type="date"  [(ngModel)]="fecha_inicio" [ngModelOptions]="{standalone:true}"    class="form-control" id="apellidos" placeholder="Apellidos">
+            <input type="date" #name [(ngModel)]="fecha_inicio" [ngModelOptions]="{standalone:true}"  name="fecha_inicio"  class="form-control" id="fecha_inicio">
           </div>
           <div class="form-group">
-            <label for="nombres">Fecha de fin</label>
+            <label for="fecha_final">Fecha de fin</label>
             <br>
-            <input type="date"  [(ngModel)]="fecha_fin" [ngModelOptions]="{standalone:true}"    class="form-control" id="email" placeholder="Email">
+            <input type="date" #name [(ngModel)]="fecha_fin" [ngModelOptions]="{standalone:true}"  name="fecha_final"  class="form-control" id="fecha_final">
           </div>
        
           <div class="form-group edad">
-            <label for="edad">Descuento</label>
+            <label for="descuento">Descuento</label>
             <br>
-            <input type="number"  [(ngModel)]="descuento" [ngModelOptions]="{standalone:true}"  class="form-control" id="edad" placeholder="Edad">
+            <input type="number" #name [(ngModel)]="descuento" [ngModelOptions]="{standalone:true}" name="descuento" class="form-control" id="descuento" placeholder="Descuento">
+          </div>
+          <br>
+          <h1 class="titulo2">Escoja el tipo de usuario</h1>
+          <div  *ngFor="let checkboxU of checkboxesVIP">
+            <label>
+              <input type="checkbox" [id]="checkboxU.id" [disabled]="checkboxU.disabled" (change)="onChangeU($event)"  >
+              {{checkboxU.value}}
+            </label>
           </div>
           <br>
           <h1 style="padding: 30px;" class="titulo">Lista de eventos</h1>
@@ -72,16 +80,20 @@
                   <td>
                     <button type="button" class="btn btn-primary boton" (click)="addEvento(evento,evento.id)">Agregar</button>
                   </td>
-               
-                </tr>
+                  <br>
+               </tr>
               </tbody>
+              
           
             </table>
+            
           </div>
           <br>
           <br>
+         
+          <br>
           <button type="submit" class="btn btn-primary color-boton" (click)="save()">Crear</button>
-     
+ 
 
         </div>
        

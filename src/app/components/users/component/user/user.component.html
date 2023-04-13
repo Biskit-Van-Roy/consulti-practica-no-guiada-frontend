@@ -19,6 +19,7 @@
         <th>Id</th>
         <th>Nombre</th>
         <th>Fecha</th>
+        <th>Precio</th>
         <th>Editar</th>
         <th>Eliminar</th>
       </tr>
@@ -33,6 +34,9 @@
         </td>
         <td>
           {{user.fecha}}
+        </td>
+        <td>
+         {{user.precio}}
         </td>
         <td>
           <button type="button" class="btn btn-primary boton"data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="updateUser(user,user.id)">Editar</button>
@@ -58,15 +62,15 @@
         <form>
           <div class="form-group">
             <label for="nombres">Nombre:</label>
-            <input type="text" #name  name="nombres" class="form-control" placeholder="Nombres"a [(ngModel)]="userToUpdate.nombre"/>
+            <input type="text" #name  name="nombres" class="form-control" placeholder="Nombre"a [(ngModel)]="userToUpdate.nombre"/>
             </div>
           <div class="form-group">
             <label for="apellidos">Fecha:</label>
-            <input type="date" #name  name="apellidos" class="form-control" placeholder="Apeliidos" [(ngModel)]="userToUpdate.fecha"/>
+            <input type="date" #name  name="apellidos" class="form-control" [(ngModel)]="userToUpdate.fecha"/>
           </div>
           <div class="form-group">
             <label for="user">Precio:</label>
-            <input type="text" #name  name="user" class="form-control" placeholder="User" [(ngModel)]="userToUpdate.precio"/>
+            <input type="text" #name  name="user" class="form-control" placeholder="Precio" [(ngModel)]="userToUpdate.precio"/>
           </div>
           
         </form>

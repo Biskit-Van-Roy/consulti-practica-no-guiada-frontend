@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { error } from 'console';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import {  UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -8,7 +8,8 @@ import {  UserService } from 'src/app/shared/services/user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  userDetails=null;
+  public userDetails:any;
+  srcData:SafeResourceUrl[] | undefined;  
   userToUpdate = {
     id:0,
     nombre:"",
@@ -22,10 +23,14 @@ export class UserComponent implements OnInit {
   }
   getUsers(){
     this.userService.getUsers().subscribe((data:any)=>{
-      console.log("Users: ",data);
+      
+      console.log("Respuesta: ",data);
+      const dateEvento:EventoElement[]=[];
+
       if(data.metadata[0].code=="00"){
-        this.userDetails = data.eventoResponse.evento;
-   
+        
+        let lista = data.eventoResponse.evento;
+        this.userDetails=lista;
       }
       console.log(this.userDetails);
     }, (error) => {
@@ -34,6 +39,7 @@ export class UserComponent implements OnInit {
     )
   }
   deleteUser(id:any){
+    console.log(id);
     this.userService.deletePerfil(id).subscribe((resp)=>{
       console.log(resp);
     },
@@ -61,8 +67,14 @@ export class UserComponent implements OnInit {
 
 }
 
-export interface UserElement {
+export interface EventoElement {
   
   id: number;
-  name: string;
+  nombre: string;
+  fecha:string;
+  fechas_compra:string[];
+  imagen:any;
+  precio:number;
+  entradas:number;
+  
 }

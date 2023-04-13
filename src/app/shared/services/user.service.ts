@@ -8,6 +8,12 @@ const base_url = environment.base_url;
 })
 export class UserService{
   constructor(private http:HttpClient){}
+
+  saveUser(body:any){
+    const endpoint  = `${base_url}/evento/save`;
+    return this.http.post(endpoint,body,{responseType:'text'});
+  }
+
   getUsers(){
     const endpoint  = `${base_url}/evento/all`;
     return this.http.get(endpoint);
