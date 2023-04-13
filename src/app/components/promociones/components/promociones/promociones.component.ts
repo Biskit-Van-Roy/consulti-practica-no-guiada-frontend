@@ -146,7 +146,7 @@ export class PromocionesComponent implements OnInit {
      tipo:this.tipo,
      usuario_creador:"admin",
      fecha_creacion:dateTime,
-     eventoId:3,
+     eventoId:this.evento_seleccionado[0].id,
      fecha_modificacion:dateTime
    };
    const uploadPromocion = new FormData();
@@ -164,6 +164,7 @@ export class PromocionesComponent implements OnInit {
    this.promocionesService.save(uploadPromocion).subscribe((resp)=>{
     console.log(resp);
     alert("Se guardo correctamente");
+    location.reload();
    });
 
    

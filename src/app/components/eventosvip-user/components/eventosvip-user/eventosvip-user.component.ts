@@ -5,12 +5,11 @@ import { PromocionesService } from 'src/app/shared/services/promociones.service'
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
-  selector: 'app-eventos-user',
-  templateUrl: './eventos-user.component.html',
-  styleUrls: ['./eventos-user.component.css']
+  selector: 'app-eventosvip-user',
+  templateUrl: './eventosvip-user.component.html',
+  styleUrls: ['./eventosvip-user.component.css']
 })
-export class EventosUserComponent implements OnInit {
-
+export class EventosvipUserComponent implements OnInit {
   constructor(private router:Router,private userService:UserService, private promocionesService:PromocionesService, private comprasService:ComprasService) { }
   userDetails=null;
   promocionesDetails=null;
@@ -193,7 +192,7 @@ getPromociones(){
     if(data.metadata[0].code=="00"){
       for(let i=0;i<data.promocionesResponse.promociones.length; i++){
         console.log(data.promocionesResponse.promociones[i].vip);
-        if(data.promocionesResponse.promociones[i].vip==2){
+        if(data.promocionesResponse.promociones[i].vip==1){
           this.promociones.push(data.promocionesResponse.promociones[i])
          this.promocionesDetails = data.promocionesResponse.promociones[i];
           console.log(this.promociones);

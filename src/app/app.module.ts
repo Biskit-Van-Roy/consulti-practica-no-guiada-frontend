@@ -14,6 +14,7 @@ import { PromocionesComponent } from './components/promociones/components/promoc
 import { ProductosComponent } from './components/productos/components/productos/productos.component';
 import { RegistroComponent } from './components/registro/components/registro/registro.component';
 import { EventosUserComponent } from './components/eventos-user/components/eventos-user/eventos-user.component';
+import { EventosvipUserComponent } from './components/eventosvip-user/components/eventosvip-user/eventosvip-user.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EventosUserComponent } from './components/eventos-user/components/event
     PromocionesComponent,
     ProductosComponent,
     RegistroComponent,
-    EventosUserComponent
+    EventosUserComponent,
+    EventosvipUserComponent
   ],
   bootstrap: [AppComponent],
   imports: [

@@ -9,6 +9,7 @@ import { PromocionesComponent } from './components/promociones/components/promoc
 import { ProductosComponent } from './components/productos/components/productos/productos.component';
 import { RegistroComponent } from './components/registro/components/registro/registro.component';
 import { EventosUserComponent } from './components/eventos-user/components/eventos-user/eventos-user.component';
+import { EventosvipUserComponent } from './components/eventosvip-user/components/eventosvip-user/eventosvip-user.component';
 
 const routes: Routes = [
   { path: '', component:LoginComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'promociones', component:PromocionesComponent },
   { path: 'productos', component:ProductosComponent },
   { path: 'eventos-user', component:EventosUserComponent },
+  { path: 'eventosvip-user', component:EventosvipUserComponent },
 ];
 
 @NgModule({
